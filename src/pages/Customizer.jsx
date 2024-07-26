@@ -31,10 +31,10 @@ const Customizer = () => {
       case "colorpicker":
         return <ColorPicker />
       case "filepicker":
-        return <FilePicker file={file} setFile={setFile} readFile={readFile} />
+        return <FilePicker file={file} setFile={setFile} readFile={readFile}/>
       case "modelpicker":
         return <ModelPicker 
-          onSelectModel={selectedModel} />
+          onSelectModel={selectedModel}/>
       default:
         return null
     }
@@ -71,10 +71,10 @@ const Customizer = () => {
         break;
       default:
         state.isLogoTexture = true
-        state.isFullTexture = flase
+        state.isFullTexture = false
     }
 
-    //CHATGPT CHECK
+    
     setActiveFilterTab((prevState) => {
       return{
         ...prevState,
@@ -117,11 +117,7 @@ const Customizer = () => {
                 <Tab key = {tab.name} tab={tab} isFilterTab isAciveTab={activeFilterTab[tab.name]} handleClick={() => handleActiveFilterTab(tab.name)} />
               ))}
             </motion.div>
-          </>
-        
-        
-        
-        
+          </> 
         )}
       </AnimatePresence>
     </div>
