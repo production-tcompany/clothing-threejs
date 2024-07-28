@@ -8,6 +8,7 @@ import { models } from './ModelContext';
 const ModelPicker = ({ onSelectModel }) => {
     const { selectedModel, setSelectedModel } = useModel()
     const [isOpen, setIsOpen] = useState(false)
+    
     const handleModelChange = (model) => {
         setSelectedModel(model);
         setIsOpen(false)
@@ -24,12 +25,12 @@ const ModelPicker = ({ onSelectModel }) => {
                 <div
                   key={model.name}
                   onClick={() => handleModelChange(model)}
-                  className="flex items-center hover:bg-gray-100 cursor-pointer"
+                  className="flex items-center justify-center  cursor-pointer rounded-full"
                 >
                   <img
                     src={`/images/${model.name}.png`}
                     alt={model.name}
-                    className="w-10 h-10"
+                    className="w-10 h-10 hover:scale-125"
                   />
                   
                 </div>
