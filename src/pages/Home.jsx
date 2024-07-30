@@ -23,7 +23,7 @@ const Home = () => {
                     </motion.div>
                     <motion.div initial={headContentAnimation.initial} animate={headContentAnimation.animate} exit={headContentAnimation.exit} transition={{...headContentAnimation, delay: 0.5}} className='flex flex-col gap-5'>
                         <p className='max-w-md font-normal text-gray-600 text-base'>
-                            Create your unique and exclusive shirt with our brand-new 3D customization tool. <strong>Unleash your imagination.</strong>{" "} and define your own style
+                        Design your perfect look with our 3D customization tool. Mix and match models, textures, and colors to define your unique style. <strong>Unleash your imagination</strong>{" "} and define your own style
                         </p>
 
                         <CustomButton

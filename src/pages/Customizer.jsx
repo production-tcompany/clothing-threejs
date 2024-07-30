@@ -7,7 +7,7 @@ import state from '../store'
 import {download, stylishShirt} from '../assets'
 import {EditorTabs, FilterTabs, DecalTypes} from '../config/constants'
 import { fadeAnimation, slideAnimation } from '../config/motion'
-import { ModelPicker,ColorPicker, CustomButton, Tab, FilePicker } from '../components'
+import { ModelPicker,ColorPicker, CustomButton, Tab, TexturePicker } from '../components'
 import { useModel } from '../components/ModelContext'
 
 const Customizer = () => {
@@ -26,7 +26,7 @@ const Customizer = () => {
       case "colorpicker":
         return <ColorPicker />
       case "filepicker":
-        return <FilePicker setActiveFilterTab={setActiveFilterTab}/>
+        return <TexturePicker setActiveFilterTab={setActiveFilterTab}/>
       case "modelpicker":
         return <ModelPicker 
           onSelectModel={selectedModel}/>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import state from '../store';
 
-const FilePicker = ({ setActiveFilterTab }) => {
+const TexturePicker = ({ setActiveFilterTab }) => {
     //const snap = useSnapshot(state)
     const textures= ['ZigZag', 'TieDye', 'Blue_Pattern', 'Denim', 'Floral', 'Texture']
     const handleTextureChange = (texture) => {
@@ -36,4 +36,4 @@ const FilePicker = ({ setActiveFilterTab }) => {
       );
 };
 
-export default FilePicker;
+export default TexturePicker;
