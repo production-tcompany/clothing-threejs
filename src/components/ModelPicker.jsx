@@ -7,16 +7,10 @@ import { models } from './ModelContext';
 
 const ModelPicker = ({ onSelectModel }) => {
     const { selectedModel, setSelectedModel } = useModel()
-    const [isOpen, setIsOpen] = useState(false)
     const handleModelChange = (model) => {
         setSelectedModel(model);
-        setIsOpen(false)
     };
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen) 
-    }
-  
     return (
         <div className="modelpicker-container absolute top-0 left-full ml-3 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <div className="grid grid-cols-2 gap-3 p-2 ml-5 mt-5">

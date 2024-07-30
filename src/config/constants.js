@@ -16,10 +16,7 @@ export const EditorTabs = [
 ];
 
 export const FilterTabs = [
-  {
-    name: "logoShirt",
-    icon: logoShirt,
-  },
+
   {
     name: "stylishShirt",
     icon: stylishShirt,
@@ -27,10 +24,7 @@ export const FilterTabs = [
 ];
 
 export const DecalTypes = {
-  logo: {
-    stateProperty: "logoDecal",
-    filterTab: "logoShirt",
-  },
+
   full: {
     stateProperty: "fullDecal",
     filterTab: "stylishShirt",

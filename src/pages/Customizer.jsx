@@ -5,7 +5,6 @@ import { useSnapshot } from 'valtio'
 import config from '../config/config'
 import state from '../store'
 import {download, stylishShirt} from '../assets'
-import {downloadCanvasToImage, reader} from '../config/helpers'
 import {EditorTabs, FilterTabs, DecalTypes} from '../config/constants'
 import { fadeAnimation, slideAnimation } from '../config/motion'
 import { ModelPicker,ColorPicker, CustomButton, Tab, FilePicker } from '../components'
@@ -14,14 +13,10 @@ import { useModel } from '../components/ModelContext'
 const Customizer = () => {
   const defaultModel = {name: 'Shirt', path: '/shirt_baked.glb', geometry: 'T_Shirt_male', material: 'lambert1'}
 
-  //const [selectedModel, setSelectedModel] = useState(defaultModel);
   const { selectedModel } = useModel()
 
   const snap = useSnapshot(state)
-  const [file, setFile] = useState('')
-  const [prompt, setPrompt] = useState('')
   const [isActive, setIsActive] = useState(true)
-
   const [ activeEditorTab, setActiveEditorTab] = useState("")
   const [ activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true, stylishShirt: false
@@ -31,7 +26,7 @@ const Customizer = () => {
       case "colorpicker":
         return <ColorPicker />
       case "filepicker":
-        return <FilePicker file={file} setFile={setFile} readFile={readFile}/>
+        return <FilePicker setActiveFilterTab={setActiveFilterTab}/>
       case "modelpicker":
         return <ModelPicker 
           onSelectModel={selectedModel}/>
@@ -40,32 +35,10 @@ const Customizer = () => {
     }
   }
 
-  const handleSubmit = async (type) => {
-    if(!prompt) return alert("Please enter a prompt")
-    
-      try {
 
-      } catch (error) {
-        alert(error)
-      } finally {
-        setGeneratingImg(false)
-        setActiveEditorTab("")
-      }
-  }
-
-  const handleDecals = (type, result) => {
-    const decalType = DecalTypes[type]
-    state[decalType.stateProperty] = result
-    if(!activeFilterTab[decalType.filterTab]) {
-      handleActiveFilterTab(decalType.filterTab)
-    } 
-  }
 
   const handleActiveFilterTab = (tabName) => {
     switch(tabName) {
-      case "logoShirt":
-        state.isLogoTexture = !activeFilterTab[tabName]
-        break;
       case "stylishShirt":
         state.isFullTexture = !activeFilterTab[tabName]
         break;
@@ -86,14 +59,6 @@ const Customizer = () => {
   useEffect(() => {
     setActiveFilterTab("")
   }, [selectedModel])
-
-  const readFile = (type) => {
-    reader(file).then((result) => {
-      handleDecals(type, result)
-      setActiveEditorTab("")
-    })
-  }
-
 
   return (
     <div>
