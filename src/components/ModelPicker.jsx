@@ -19,12 +19,12 @@ const ModelPicker = ({ onSelectModel }) => {
                 <div
                   key={model.name}
                   onClick={() => handleModelChange(model)}
-                  className="flex items-center justify-center  cursor-pointer rounded-full"
+                  className="flex items-center justify-center  cursor-pointer rounded-full m-2"
                 >
                   <img
                     src={`/images/${model.name}.png`}
                     alt={model.name}
-                    className="w-10 h-10 hover:scale-125"
+                    className="w-15 h-15 hover:scale-125"
                   />
                   
                 </div>

@@ -16,7 +16,7 @@ const Customizer = () => {
   const { selectedModel } = useModel()
 
   const snap = useSnapshot(state)
-  const [isActive, setIsActive] = useState(true)
+  const [isActive, setIsActive] = useState(false)
   const [ activeEditorTab, setActiveEditorTab] = useState("")
   const [ activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true, stylishShirt: false
@@ -69,7 +69,15 @@ const Customizer = () => {
               <div className='flex items-center min-h-screen'>
                 <div className='editortabs-container tabs'>
                   {EditorTabs.map((tab) => (
-                    <Tab key = {tab.name} tab={tab} handleClick={() => {setIsActive(!isActive); isActive ? setActiveEditorTab(tab.name) : setActiveEditorTab("")}} />
+                    <Tab key = {tab.name} tab={tab} handleClick={() => { 
+                      if(isActive && tab.name == activeEditorTab){
+                        setActiveEditorTab("")
+                        setIsActive(false)
+                      } else {
+                        setActiveEditorTab(tab.name)
+                        setIsActive(true)
+                      }
+                    }} />
                   ))}
                   {generateTabContent()}
                 </div>

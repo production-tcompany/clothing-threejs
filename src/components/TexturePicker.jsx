@@ -15,17 +15,17 @@ const TexturePicker = ({ setActiveFilterTab }) => {
 
     return (
         <div className="modelpicker-container absolute top-0 left-full w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-            <div className="grid grid-cols-2 gap-3 p-2 m-3 border-solid border-inherit">
+            <div className="grid grid-cols-2 gap-3 p-2 ml-3 border-solid border-inherit">
               {textures.map((texture) => (
                 <div
                   key={texture}
                   onClick={() => handleTextureChange(texture)}
-                  className="flex items-center hover:bg-gray-100 cursor-pointer"
+                  className="flex items-center hover:bg-gray-100 cursor-pointer m-1"
                 >
                   <img
                     src={`/images/Textures/${texture}.jpg`}
                     alt={texture}
-                    className="w-10 h-10"
+                    className="w-12 h-12 hover:scale-125"
                   />
                   
                 </div>
